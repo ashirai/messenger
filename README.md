@@ -8,7 +8,7 @@ This is a simple demo of a web based messanger.
 - .NET 4.5 (C#)
 - SignalR 2.0
 
-## What's SignalR
+## What is SignalR?
 SignalR is a set of server and client libraries that facilitate simple, real-time, two-way communications between server and client. Not only can the client initiate contact with the server, as is the case in Web development, but the server can also contact the client. Those aren’t just simple HTTP responses, either. These are actual method calls from server to client, like push technology. Clients can even contact other clients through the SignalR server-side component. All this is possible because SignalR creates a persistent connection between the server and client.
 
 ## System Requirements
