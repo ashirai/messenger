@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Messenger</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-slate.min.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+</head>
+
+<body ng-controller="MessengerController as vm">
+
+    <!-- header -->
+    <div class="navbar navbar-default navbar-fixed-top">
+        <span class="navbar-brand">Messenger</span>
+    </div>
+
+    <div class="container">
+
+        <!-- select user -->
+        <div class="row" ng-show="!vm.isUserSelected">
+            <div id="select-user" class="col-xs-12 text-center">
+                <div>
+                    <h3>How to test Messenger</h3>
+                    <h6>
+                        1. Open the messenger in 2 different windows.<br/>
+                        2. Select a different user from below for each window<br/>
+                        3. Enter message in each window<br/>
+                        4. You will see a message sent from the other window<br/>
+                    </h6>
+                </div>
+                <span ng-repeat="userImage in vm.userImages">
+                    <img class="img-circle animate fade" ng-src="Images/{{userImage}}" ng-click="vm.selectUser(userImage)" />
+                </span>
+            </div>
+        </div>
+
+        <!-- messages -->
+        <div class="row" ng-show="vm.isUserSelected">
+            <div class="col-xs-12 message-container" ng-repeat="message in vm.messages">
+                <span class="col-xs-2 col-md-1" ng-show="!message.isImageOnRight"><img class="img-circle" ng-src="Images/{{message.userImage}}" /></span>
+                <div class=" col-xs-10 col-md-11">
+                    <div class="message-bubble {{message.bubbleDirection}}">{{message.message}}</div>
+                </div>
+                <span class="col-xs-2 col-md-1" ng-show="message.isImageOnRight"><img class="img-circle" ng-src="Images/{{message.userImage}}" /></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- enter new message -->
+    <div class="navbar navbar-default navbar-fixed-bottom" ng-show="vm.isUserSelected">
+        <div class="row">
+            <form ng-submit="vm.SendMessage()" class="col-xs-12">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <img class="img-circle" ng-src="Images/{{vm.selectedUserImage}}" />
+                    </span>
+                    <input type="text" class="form-control" placeholder="Enter Message..." ng-model="vm.newMessage">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit" ng-click="vm.sendMessage()">Send</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="Scripts/jquery-2.1.4.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    <script src="Scripts/app/messenger.controller.js"></script>
+    <script src="Scripts/app/messenger.service.js"></script>
+
+</body>
+</html>
