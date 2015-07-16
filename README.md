@@ -36,7 +36,7 @@ SignalR can be used in a variety of web browsers, but typically, only the latest
 3. Start debugging
 4. When a browser window opens, copy the url into another browser window
 5. Select a different user for each window (so that you can see different people are talking to each other.
-6. Now enter a message in each window to see those messages are pushed to each window
+6. Now enter a message in each window to see if those messages are pushed to each window
 
 
 
