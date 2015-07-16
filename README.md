@@ -5,6 +5,7 @@ This is a simple demo of a web based messanger.
 
 ## Technology Used
 - Angular.js 1.4.3
+- .NET 4.5 (C#)
 - SignalR 2.0
 
 ## System Requirements
